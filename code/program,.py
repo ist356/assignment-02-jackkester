@@ -26,4 +26,13 @@ Example:
     ]    
 '''
 
-# TODO: Write code
+import json 
+from packaging import parse_packaging, calc_total_units, get_unit
+main_list = []
+with open("data/packaging.txt") as f:
+    for i in f:
+        list_of_dicts = parse_packaging(i.strip())
+        total = calc_total_units(list_of_dicts)
+        unit = get_unit(list_of_dicts)
+        print(f"{i.strip()} => total units: {total} {unit}")
+
