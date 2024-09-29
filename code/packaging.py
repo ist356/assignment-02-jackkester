@@ -20,7 +20,7 @@ def parse_packaging(packaging_data: str) -> list[dict]:
     '''
     string_nums = ("0","1","2","3","4","5","6","7","8","9")
     new_dict = []
-    new_list = packaging_data.split(" ")
+    new_list = packaging_data.strip().split(" ")
 
     for i, strings in enumerate(new_list):
         if new_list[i][0] in string_nums:
@@ -71,7 +71,7 @@ def get_unit(package: list[dict]) -> str:
 # # Use this for testing / debugging cases with the debugger
 if __name__ == '__main__':
     
-    text = "25 balls in 1 bucket / 4 buckets in 1 bin"
+    text = "2 foo in 1 bar / 3 bars in 1 baz / 4 baz in 1 qux / 2 qux in 1 biz"
     package = parse_packaging(text)
     print(package)
 
